@@ -24,5 +24,5 @@ CREATE TABLE orders (
     status TEXT NOT NULL,
     exchange_id TEXT,
     timestamp TIMESTAMP,
-    FOREIGN KEY (trade_id) REFERENCES trades(id)
+    FOREIGN KEY (trade_id) REFERENCES trades(id) ON DELETE CASCADE
 );
