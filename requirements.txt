@@ -1,0 +1,3 @@
+SQLAlchemy>=1.4
+Pydantic>=2.0
+aiosqlite
