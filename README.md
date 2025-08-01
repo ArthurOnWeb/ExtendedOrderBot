@@ -1,2 +1,5 @@
-# VolumeBot
-Développer un bot de trading semi-automatique pour générer 1 million USD de volume sur Extended Exchange avec un coût maximum de 40 USD en frais de trading.
+# ExtendedOrderBot
+
+Ce projet fournit un bot simple permettant de lancer des ordres de trading de
+manière semi-automatique sur [extended.exchange](https://extended.exchange).
+Il ne s'agit pas d'un bot de volume.
