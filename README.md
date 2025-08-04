@@ -28,17 +28,19 @@ Le code suivant crée un trade dans la base en utilisant `TradeRepository`:
 import asyncio
 from src.database.connection import get_session
 from src.database.repositories import TradeRepository
+from src.database.schemas import TradeCreate
 
 async def main():
     async for session in get_session():
         repo = TradeRepository(session)
-        await repo.create_trade({
-            "id": "demo",
-            "pair": "BTC/USDT",
-            "direction": "BUY",
-            "size": 1.0,
-            "status": "ACTIVE"
-        })
+        trade = TradeCreate(
+            id="demo",
+            pair="BTC/USDT",
+            direction="BUY",
+            size=1.0,
+            status="ACTIVE",
+        )
+        await repo.create_trade(trade)
 
 asyncio.run(main())
 ```
