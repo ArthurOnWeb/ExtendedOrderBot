@@ -3,9 +3,11 @@ from datetime import datetime
 from typing import Optional
 
 class TradeCreate(BaseModel):
+    id: str
     pair: str
     direction: str
     size: float
+    status: str
     entry_price: Optional[float] = None
     tp_price: Optional[float] = None
     sl_price: Optional[float] = None
