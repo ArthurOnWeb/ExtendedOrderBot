@@ -44,3 +44,11 @@ async def main():
 
 asyncio.run(main())
 ```
+
+## Tests
+
+Après avoir installé les dépendances, exécutez les tests unitaires avec :
+
+```bash
+pytest
+```
