@@ -1,5 +1,7 @@
 # src/database/repositories.py
 from typing import List
+import uuid
+from datetime import datetime
 
 from sqlalchemy import select
 
@@ -12,7 +14,12 @@ class TradeRepository:
     
     async def create_trade(self, trade_data: TradeCreate) -> Trade:
         trade_dict = trade_data.model_dump()
-        trade = Trade(**trade_dict)
+        trade = Trade(
+            id=str(uuid.uuid4()),
+            status="ACTIVE",
+            created_at=datetime.utcnow(),
+            **trade_dict,
+        )
         self.session.add(trade)
         await self.session.commit()
         await self.session.refresh(trade)
