@@ -23,14 +23,13 @@ async def test_create_and_get_active_trade():
     async with AsyncSessionLocal() as session:
         repo = TradeRepository(session)
         trade_data = TradeCreate(
-            id="t1",
             pair="BTC/USDT",
             direction="LONG",
             size=1.0,
-            status="ACTIVE",
         )
         await repo.create_trade(trade_data)
 
         active_trades = await repo.get_active_trades()
         assert len(active_trades) == 1
-        assert active_trades[0].id == "t1"
+        assert active_trades[0].status == "ACTIVE"
+        assert active_trades[0].id is not None
